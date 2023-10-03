@@ -1,0 +1,54 @@
+INSTRUCTIONS
+add DNS entry for your domain
+-> install certbot ssl and nginx
+/- create SSL certificate and add into config
+sudo rm -rf /etc/nginx/sites-enabled/default
+sudo nano /etc/nginx/sites-enabled/default
+paste config file and reload
+sudo nginx -s reload
+
+
+Make sure to change parameters for your website
+
+
+
+
+# HTTP — redirect all traffic to HTTPS
+server {
+    listen 80;
+    listen [::]:80 ipv6only=on;
+    server_name xte.trrxitte.com;
+    return 301 https://$host$request_uri;
+}
+
+# HTTPS — proxy all requests to the pool app
+server {
+    # Enable HTTP/2
+    listen 443 ssl http2;
+    listen [::]:443 ssl http2;
+    server_name YOURDOMAIN;
+
+    # Use the Let’s Encrypt certificates
+    ssl_certificate /etc/letsencrypt/live/xte.trrxitte.com/fullchain.pem;
+    ssl_certificate_key /etc/letsencrypt/live/xte.trrxitte.com/privkey.pem;
+
+    include /etc/letsencrypt/options-ssl-nginx.conf;
+    ssl_dhparam /etc/letsencrypt/ssl-dhparams.pem;
+
+    # Set files location
+    root /home/traaitt/xtcash-cryptonote-nodejs-pool/website_example;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ =404;
+    }
+
+        # Set API proxy
+    location ~ ^/api/(.*) {
+        proxy_pass http://127.0.0.1:8100/$1$is_args$args;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
