@@ -1,8 +1,8 @@
 @import url(//fonts.googleapis.com/css?family=Roboto+Condensed:400,700);
 @import url(//fonts.googleapis.com/css?family=Roboto:400,300,500,700);
 @import url(//fonts.googleapis.com/css?family=Inconsolata:400,700);
-
 /* Start https://www.cursors-4u.com */ * {cursor: url(https://traaitt.com/images/cursor.cur), auto !important;} /* End https://www.cursors-4u.com */
+edit sidebar and topbar color code to #191919 and background to #FFF0F5
 body {  
   background-color: #FFF0F5;
   font-family: 'Roboto', Helvetica, Arial, sans-serif;
@@ -283,7 +283,7 @@ footer > div{
 
 /* Top Bar */
 #top-bar { 
-  background-color: #7f02a2;
+  background-color: #02a23a;
   line-height: 50px;
   display: block;
   font-size: 17px;
