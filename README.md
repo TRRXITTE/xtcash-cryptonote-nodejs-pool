@@ -1,7 +1,7 @@
 xtcash-cryptonote-nodejs-pool
 ======================
 
-High performance Node.js (with native C addons) mining pool for traaitt [XTE]. 
+High performance Node.js (with native C addons) mining pool for traaitt [XTCASH]. 
 
 
 ## Requirements: 
@@ -67,7 +67,7 @@ cd xtcash-cryptonote-nodejs-pool
 nvm use 11
 npm install
 ```
-/ edit config.json parameters for [XTE]
+/ edit config.json parameters for [XTCASH]
 ```
 forever start init.js // node init.js
 ```

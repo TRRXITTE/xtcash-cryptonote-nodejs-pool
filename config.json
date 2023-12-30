@@ -1,8 +1,8 @@
 
 {
-    "poolHost": "xte.trrxitte.com",
-    "coin": "traaitt",
-    "symbol": "XTE",
+    "poolHost": "xtcash.trrxitte.com",
+    "coin": "traaittcash",
+    "symbol": "XTCASH",
     "coinUnits": 100,
     "coinDecimalPlaces": 2,
     "coinDifficultyTarget": 45,
